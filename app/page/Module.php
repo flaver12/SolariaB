@@ -20,6 +20,7 @@ namespace Stormform\Page;
 use Phalcon\Loader,
     Phalcon\Mvc\Dispatcher,
     Phalcon\Mvc\View,
+    Phalcon\DiInterface,
     Phalcon\Mvc\ModuleDefinitionInterface,
     Phalcon\Mvc\View\Engine\Volt;
 
@@ -29,7 +30,7 @@ class Module implements ModuleDefinitionInterface
     /**
      * Register a specific autoloader for the module
      */
-    public function registerAutoloaders()
+    public function registerAutoloaders(DiInterface $di = null)
     {
 
         $loader = new Loader();
@@ -49,7 +50,7 @@ class Module implements ModuleDefinitionInterface
     /**
      * Register specific services for the module
      */
-    public function registerServices($di)
+    public function registerServices(DiInterface $di = null)
     {
 
         //Registering a dispatcher
